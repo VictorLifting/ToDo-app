@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-menu-button slot="start">
+        <ion-title>ToDo</ion-title>
+      </ion-menu-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Add ToDo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form #todoForm="ngForm" (ngSubmit)="save(todoForm.value)">
+        <ion-grid class="ion-padding-top">
+          <ion-row>
+            <ion-col>
+              <ion-textarea
+              type="text"
+              label="Title"
+              labelPlacement="floating"
+              fill="outline"
+              name="title"
+              ngModel
+              rows="5"
+              maxlength="50"
+              #title
+              (keyup)="check(title.value)"
+              >
+              </ion-textarea>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-select
+              label="Category"
+              labelPlacement="floating"
+              fill="outline"
+              name="category"
+              >
+            </ion-select>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

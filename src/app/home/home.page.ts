@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+
+
   constructor() {}
+
+  save(formValues: any){}
+  check(textareaValue: any){}
 
 }
