@@ -66,7 +66,7 @@
     </ion-card-header>
     <ion-card-content>
       <ion-list lines="full">
-        <div *ngIf="(objectCategories === null || categories === '[]'); then ifBlock else elseBlock"></div>
+        <div *ngIf="objectCategories.length === 0; then ifBlock else elseBlock"></div>
         <ng-template #ifBlock>
           <ion-item>
             <ion-text>Empty...</ion-text>

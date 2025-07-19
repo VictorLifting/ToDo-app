@@ -1,0 +1,9 @@
+<ion-card *ngFor="let item of objectLists; index as indexId">
+  <ion-card-header>
+    <div class="close">
+      <ion-icon name="close" slot="end" (click)="remove(indexId)" ></ion-icon>
+    </div>
+    <ion-card-title>{{item.title}}</ion-card-title>
+    <ion-card-subtitle>{{item.category}}</ion-card-subtitle>
+  </ion-card-header>
+</ion-card>

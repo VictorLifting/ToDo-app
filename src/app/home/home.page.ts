@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Task, Category } from '../models';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +9,23 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
+  public propCategory = 'default';
+  public propDisabled = true;
 
+  public objectCategories: Category[] = [];
+  public objectList: Task[] = [];
 
+  constructor(private todoService: TodoService) {
+    this.objectCategories = this.todoService.getCategories();
+    this.objectList = this.todoService.getTasks();
+  }
 
-  constructor() {}
+  save(formValues: Task): void {
+    this.todoService.saveTask(formValues);
+    location.reload();
+  }
 
-  save(formValues: any){}
-  check(textareaValue: any){}
-
+  check(textareaValue: any): void {
+    this.propDisabled = !textareaValue?.trim();
+  }
 }

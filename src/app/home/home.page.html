@@ -37,13 +37,42 @@
               labelPlacement="floating"
               fill="outline"
               name="category"
-              >
+              [(ngModel)]="propCategory">
+
+              <div *ngIf="objectCategories.length === 0; then ifBlock else elseBlock"></div>
+              <ng-template #ifBlock>
+                <ion-select-option value="default">Default</ion-select-option>
+              </ng-template>
+              <ng-template #elseBlock>
+                <ion-select-option value="default">Default</ion-select-option>
+                <ion-select-option
+                  *ngFor="let item of objectCategories"
+                  [value]="item.name">
+                {{item.name}}
+              </ion-select-option>
+              </ng-template>
             </ion-select>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit"
+              color=""
+              expand="block"
+              size="large"
+              [disabled]="propDisabled"
+              >
+            <ion-icon
+              name="save"
+              slot="start">
+            </ion-icon>
+              Save
+            </ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
       </form>
-
     </ion-card-content>
   </ion-card>
+  <app-list></app-list>
 </ion-content>
