@@ -1,9 +1,16 @@
-<ion-card *ngFor="let item of objectLists; index as indexId">
-  <ion-card-header>
-    <div class="close">
-      <ion-icon name="close" slot="end" (click)="remove(indexId)" ></ion-icon>
-    </div>
-    <ion-card-title>{{item.title}}</ion-card-title>
-    <ion-card-subtitle>{{item.category}}</ion-card-subtitle>
-  </ion-card-header>
-</ion-card>
+<ion-item-sliding *ngFor="let item of objectLists; index as indexId">
+  <ion-item>
+    <ion-checkbox
+      slot="start"
+      [checked]="item.completed"
+      (ionChange)="toggleComplete(indexId, $event.detail.checked)">
+    </ion-checkbox>
+    <ion-label [ngClass]="{ 'completed-task': item.completed }">
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.category }}</p>
+    </ion-label>
+    <ion-button fill="clear" slot="end" color="danger" (click)="remove(indexId)">
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-item-sliding>

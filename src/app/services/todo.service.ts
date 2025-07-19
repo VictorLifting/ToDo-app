@@ -33,6 +33,13 @@ export class TodoService {
     localStorage.setItem(this.LISTS_KEY, JSON.stringify(tasks));
   }
 
+  updateTaskStatus(index: number, completed: boolean): void {
+  const tasks = this.getTasks();
+  if (tasks[index]) {
+    tasks[index].completed = completed;
+    this.setTasks(tasks);
+  }}
+
   // CATEGORÍAS
   getCategories(): Category[] {
     const categories = localStorage.getItem(this.CATEGORIES_KEY);

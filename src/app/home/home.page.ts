@@ -21,6 +21,7 @@ export class HomePage {
   }
 
   save(formValues: Task): void {
+    formValues.completed = false;
     this.todoService.saveTask(formValues);
     location.reload();
   }

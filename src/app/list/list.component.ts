@@ -21,4 +21,9 @@ export class ListComponent implements OnInit {
     this.todoService.deleteTask(index);
     location.reload();
   }
+
+  toggleComplete(index: number, checked: boolean): void {
+  this.todoService.updateTaskStatus(index, checked);
+  this.objectLists[index].completed = checked;
+}
 }
