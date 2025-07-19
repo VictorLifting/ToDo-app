@@ -74,5 +74,24 @@
       </form>
     </ion-card-content>
   </ion-card>
-  <app-list></app-list>
+  <ion-card>
+  <ion-card-header>
+    <ion-card-title>Filter by Category</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-select
+      interface="popover"
+      placeholder="Select category"
+      [(ngModel)]="selectedCategory"
+      (ionChange)="onCategoryFilterChange($event.detail.value)">
+      <ion-select-option value="all">All</ion-select-option>
+      <ion-select-option
+        *ngFor="let cat of objectCategories"
+        [value]="cat.name">
+        {{ cat.name }}
+      </ion-select-option>
+    </ion-select>
+  </ion-card-content>
+</ion-card>
+  <app-list [categoryFilter]="selectedCategory"></app-list>
 </ion-content>

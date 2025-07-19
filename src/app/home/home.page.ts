@@ -10,6 +10,7 @@ import { TodoService } from '../services/todo.service';
 })
 export class HomePage {
   public propCategory = 'default';
+  public selectedCategory = 'all';
   public propDisabled = true;
 
   public objectCategories: Category[] = [];
@@ -28,5 +29,9 @@ export class HomePage {
 
   check(textareaValue: any): void {
     this.propDisabled = !textareaValue?.trim();
+  }
+
+  onCategoryFilterChange(value: string) {
+    this.selectedCategory = value;
   }
 }
