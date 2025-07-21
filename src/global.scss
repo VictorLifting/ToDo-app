@@ -35,3 +35,17 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+.textarea {
+    --background: #f6f6f6;
+    --border-radius: 8px;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    color: rgb(32, 32, 32);
+  }
+
+.select {
+    --background: #f6f6f6;
+    --border-radius: 8px;
+    --padding-start: 10px;
+}
